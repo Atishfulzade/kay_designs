@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { ShopContent } from "@/components/shop/shop-content"
 
 export const metadata: Metadata = {
@@ -26,7 +27,9 @@ export default function ShopPage() {
         </div>
       </div>
 
-      <ShopContent />
+      <Suspense fallback={<div className="h-96" />}>
+        <ShopContent />
+      </Suspense>
     </div>
   )
 }
